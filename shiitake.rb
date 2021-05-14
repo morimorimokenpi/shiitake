@@ -3,6 +3,7 @@ require 'pry-byebug'
 require 'nokogiri'
 require 'open-uri'
 require 'date'
+require 'slack-ruby-client'
 
 constellations = [
   "aries",
@@ -49,6 +50,6 @@ constellations.zip(constellations_kana) do |constellation, constellation_kana|
   post_text = constellation_kana + "\n\n" + text.strip + "\n\n続きはこちら⇒ " + url
   client.chat_postMessage(
     channel: '第二期成長計画',
-    text: post_texts
+    text: post_text
   )
 end
